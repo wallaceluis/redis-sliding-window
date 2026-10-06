@@ -1,0 +1,62 @@
+{
+  "name": "redis-sliding-window",
+  "version": "1.0.0",
+  "description": "Distributed sliding window log rate limiter for Redis (ioredis) with a Fastify plugin",
+  "license": "MIT",
+  "author": "Wallace Luis",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./fastify": {
+      "types": "./dist/fastify.d.ts",
+      "default": "./dist/fastify.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit",
+    "test": "jest",
+    "prepublishOnly": "npm run typecheck && npm test && npm run build"
+  },
+  "keywords": [
+    "rate-limit",
+    "rate-limiter",
+    "sliding-window",
+    "redis",
+    "ioredis",
+    "fastify"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "peerDependencies": {
+    "fastify": ">=4",
+    "ioredis": ">=5"
+  },
+  "peerDependenciesMeta": {
+    "fastify": {
+      "optional": true
+    }
+  },
+  "dependencies": {
+    "fastify-plugin": "^6.0.0"
+  },
+  "devDependencies": {
+    "@types/ioredis-mock": "^8.2.8",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^20.19.43",
+    "fastify": "^5.12.5",
+    "ioredis": "^5.11.1",
+    "ioredis-mock": "^8.13.1",
+    "jest": "^30.5.2",
+    "ts-jest": "^29.4.14",
+    "typescript": "^5.9.3"
+  }
+}
