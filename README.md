@@ -1,5 +1,7 @@
 # redis-sliding-window
 
+[![CI](https://github.com/wallaceluis/redis-sliding-window/actions/workflows/ci.yml/badge.svg)](https://github.com/wallaceluis/redis-sliding-window/actions/workflows/ci.yml)
+
 Distributed rate limiting for Node.js using the **Sliding Window Log** algorithm on Redis, with a ready-to-use **Fastify** plugin.
 
 - **Exact**: no burst at window boundaries, unlike fixed window counters
@@ -207,7 +209,8 @@ Deletes the log of `id`, for example after a successful login.
 
 ```bash
 npm install
-npm test          # Jest
+npm test          # Jest (unit tests with ioredis-mock)
+REDIS_URL=redis://localhost:6379 npm test   # also runs the integration tests on a real Redis
 npm run typecheck
 npm run build     # emits dist/
 ```
